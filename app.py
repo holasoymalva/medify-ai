@@ -39,10 +39,7 @@ def registrar_toma(nombre, fecha=None):
     medicamentos = load_medicamentos()
     medicamento = next((med for med in medicamentos if med['nombre'] == nombre), None)
     if medicamento:
-        if fecha is None:
-            ahora = datetime.now().isoformat()
-        else:
-            ahora = fecha
+        ahora = datetime.now().isoformat() if fecha is None else fecha
         medicamento['historial'].append(ahora)
         save_medicamentos(medicamentos)
         print(f'Registro de toma para {nombre} a las {ahora}.')
@@ -90,8 +87,7 @@ if __name__ == '__main__':
             agregar_medicamento(nombre, frecuencia, inicio, duracion)
         elif opcion == '2':
             nombre = input("Ingrese el nombre del medicamento: ")
-            fecha = input("Ingrese la fecha y hora de la toma (YYYY-MM-DDTHH:MM:SS) o deje en blanco para la hora actual: ")
-            registrar_toma(nombre, fecha if fecha else None)
+            registrar_toma(nombre)
         elif opcion == '3':
             nombre = input("Ingrese el nombre del medicamento: ")
             ver_historial(nombre)

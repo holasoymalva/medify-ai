@@ -11,10 +11,10 @@
       "2024-06-11T18:00:00"
     ],
     "inicio": "2024-06-09T09:00:00",
-    "diasRestantes": 5
+    "diasRestantes": 4
   },
   {
-    "nombre": "Ciprofloxacino",
+    "nombre": "Fluxacord",
     "frecuencia": 12,
     "historial": [
       "2024-06-09T09:00:00",
@@ -25,7 +25,7 @@
       "2024-06-11T18:00:00"
     ],
     "inicio": "2024-06-09T09:00:00",
-    "diasRestantes": 5
+    "diasRestantes": 6
   },
   {
     "nombre": "Metoclopramida",
@@ -39,6 +39,20 @@
       "2024-06-11T18:00:00"
     ],
     "inicio": "2024-06-09T09:00:00",
-    "diasRestantes": 5
+    "diasRestantes": 3
+  },
+  {
+    "nombre": "metronidazol",
+    "frecuencia": 8,
+    "historial": [],
+    "inicio": "2024-06-10T19:30:00",
+    "diasRestantes": 4
+  },
+  {
+    "nombre": "Amoxicilina",
+    "frecuencia": 12,
+    "historial": [],
+    "inicio": "2024-06-10T19:30:00",
+    "diasRestantes": 7
   }
 ]
