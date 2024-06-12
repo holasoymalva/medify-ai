@@ -2,7 +2,7 @@
 
 Esta es una API RESTful para gestionar el registro de medicamentos y enviar notificaciones para recordar cuándo tomar tus medicamentos, creada con Flask.
 
-Nota : La version V1 solo cuenta con el consumo y seguimiento de manera local. La version V2 ya cuenta con una integracion a una base de datos en tiempo real y gestion personalizada de usuario. Y la version V3 se encuentra en desarrollo con una integracion a GEMINY para una mejor experiencia en la gestion de la informacion y facilidad de uso.
+Nota : La version V1 solo cuenta con el consumo y seguimiento de manera local. La version V2 ya cuenta con una integracion a una base de datos en tiempo real y gestion personalizada de usuario. Y la version V3 se encuentra en desarrollo con una integracion a GEMINI para una mejor experiencia en la gestion de la informacion y facilidad de uso.
 
 ## Tabla de Contenidos
 
