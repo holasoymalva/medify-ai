@@ -1,6 +1,8 @@
 import json
 import os
 from datetime import datetime, timedelta
+from plyer import notification
+import time
 
 # Ruta del archivo JSON
 FILE_PATH = 'medicamentos.json'
@@ -69,6 +71,36 @@ def ver_historial(nombre):
         print(f'Días restantes del tratamiento: {dias_restantes}')
     else:
         print(f'Medicamento {nombre} no encontrado.')
+
+def enviar_notificaciones():
+    while True:
+        medicamentos = load_medicamentos()
+        for medicamento in medicamentos:
+            if medicamento['historial']:
+                ultima_toma = datetime.fromisoformat(medicamento['historial'][-1])
+                proxima_toma = ultima_toma + timedelta(hours=medicamento['frecuencia'])
+                ahora = datetime.now()
+                if ahora >= proxima_toma:
+                    notification.notify(
+                        title=f"Recordatorio de Medicamento: {medicamento['nombre']}",
+                        message=f"Es hora de tomar tu medicamento: {medicamento['nombre']}",
+                        timeout=10
+                    )
+                    # Registrar automáticamente la toma después de la notificación
+                    registrar_toma(medicamento['nombre'])
+            else:
+                # Si no hay historial, programar desde la fecha de inicio
+                inicio = datetime.fromisoformat(medicamento['inicio'])
+                ahora = datetime.now()
+                if ahora >= inicio:
+                    notification.notify(
+                        title=f"Recordatorio de Medicamento: {medicamento['nombre']}",
+                        message=f"Es hora de tomar tu medicamento: {medicamento['nombre']}",
+                        timeout=10
+                    )
+                    # Registrar automáticamente la toma después de la notificación
+                    registrar_toma(medicamento['nombre'])
+        time.sleep(60)  # Verificar cada minuto
 
 # Ejemplos de uso
 if __name__ == '__main__':
